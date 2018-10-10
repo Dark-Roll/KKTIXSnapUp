@@ -1,0 +1,16 @@
+{
+	"manifest_version" : 2,
+	"name" : "鐵人賽-ContentScript範例",
+	"description" : "到臉書的個人檔案,會下雪",
+	"version" : "2.0",
+	"browser_action" : {
+		"default_title" : "到臉書的個人檔案,會下雪",
+		"default_icon" : "icon.png"		},
+	"content_scripts" : [
+		{
+			"matches" : ["*://*/*"],
+			"js" : ["buyTicket.js"]
+		}
+	],
+	"permissions" : ["activeTab"]
+}
