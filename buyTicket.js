@@ -1,9 +1,10 @@
 
-const buyTicket = ()=> {
+const buyTicket = () => {
 
     console.log("ready to if")
     let addOneTicket = document.querySelector('.btn-default.plus')
-    if(!addOneTicket) return setTimeout( function(){ buyTicket()},300)
+    if (!addOneTicket) return setTimeout(function () { buyTicket() }, 300)
+    console.log("get Element")
     //  幾張
     addOneTicket.click()
 
@@ -11,28 +12,15 @@ const buyTicket = ()=> {
     // col-6 form-control ng-valid ng-touched ng-dirty ng-valid-parse ng-empty
     // col-6 form-control ng-valid ng-touched ng-dirty ng-valid-parse ng-not-empty
     // col-6 form-control ng-valid ng-touched ng-dirty ng-valid-parse ng-empty
-    let answerInput = document.querySelector('.col-6.form-control.ng-valid')
-    answerInput.focus()
-    // formItemFocus(answerInput)
-    // answerInput.value = "C"
     // col-6 form-control ng-pristine ng-untouched ng-valid ng-empty
     // col-6 form-control ng-pristine ng-valid ng-empty ng-touched
+    let answerInput = document.querySelector('.col-6.form-control.ng-valid')
+    answerInput.focus()
+    // answerInput.value = "C"
 
-/**
- * focuses on a form field element even if it has tabIndex
- * @param  {DOM object} item [description]
-//  */
-//     function formItemFocus(item) {
-//         if (!item) {
-//             console.warn('no focusable item: ', item)
-//             return;
-//         }
+    // focuses on a form field element even if it has tabIndex
+    // must set tabIndex doesn't equal to -1
 
-//         var savedTabIndex = item.getAttribute('tabindex');
-//         item.setAttribute('tabindex', '-1');
-//         item.focus();
-//         item.setAttribute('tabindex', savedTabIndex);
-//     }
 
     let checkAgreeInput = document.querySelector('#person_agree_terms')
     checkAgreeInput.click()
