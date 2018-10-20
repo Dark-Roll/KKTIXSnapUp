@@ -1,16 +1,17 @@
 {
 	"manifest_version" : 2,
-	"name" : "KKTIX搶票快捷",
-	"description" : "快速買票以及勾選我同意 不用再跟別人比手速啦",
-	"version" : "1.0",
+	"name" : "KKTIX搶票快手",
+	"description" : "An extension makes you sooner complete your form data in KKTIX",
+	"version" : "1.0.7",
 	"browser_action" : {
-		"default_title" : "快速買票以及勾選我同意 不用再跟別人比手速啦",
+		"default_title" : "KKTIX搶票快手",
 		"default_popup": "popup.html",
-		"default_icon" : "icon.png"		
+		"default_locale": "en",
+		"default_icon" : "icon.png"		 
 	},
 	"content_scripts" : [
 		{
-			"matches" : ["https://kktix.com/events/*"],
+			"matches" : ["https://kktix.com/events/*/registrations/new"],
 			"js" : ["buyTicket.js"]
 		}
 	],

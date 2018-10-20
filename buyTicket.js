@@ -1,12 +1,13 @@
-
-const buyTicket = () => {
+function buyTicket () {
 
     console.log("ready to if")
-    let addOneTicket = document.querySelector('.btn-default.plus')
-    if (!addOneTicket) return setTimeout(function () { buyTicket() }, 300)
+    let Tickets = document.querySelectorAll('.btn-default.plus')
+    if (Tickets.length < 1) return setTimeout(function () { buyTicket() }, 300)
     console.log("get Element")
+    
     //  幾張
-    addOneTicket.click()
+    // 哪一張
+    Tickets[0].click()
 
     // col-6 form-control ng-valid ng-touched ng-not-empty ng-pristine 
     // col-6 form-control ng-valid ng-touched ng-dirty ng-valid-parse ng-empty
@@ -15,7 +16,8 @@ const buyTicket = () => {
     // col-6 form-control ng-pristine ng-untouched ng-valid ng-empty
     // col-6 form-control ng-pristine ng-valid ng-empty ng-touched
     let answerInput = document.querySelector('.col-6.form-control.ng-valid')
-    answerInput.focus()
+    if (answerInput) answerInput.focus()
+    // IF NO click 下一步?
     // answerInput.value = "C"
 
     // focuses on a form field element even if it has tabIndex
@@ -31,6 +33,7 @@ const buyTicket = () => {
 
     // 和 Enter 作連動
     let nextStepButton = document.querySelector('.btn.btn-primary.btn-lg.ng-isolate-scope')
+    // if(nextStepButton) nextStepButton.click()
     document.onkeydown = function (e) {  //對整個頁面文件監聽 
         if (e.keyCode == 13) {
             nextStepButton.click()
