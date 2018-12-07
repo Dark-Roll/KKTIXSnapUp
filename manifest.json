@@ -5,13 +5,14 @@
 	"version" : "1.0.7",
 	"browser_action" : {
 		"default_title" : "KKTIX搶票快手",
-		"default_popup": "popup.html",
+		"default_popup": "./BrowserAction/popup.html",
 		"default_locale": "en",
-		"default_icon" : "icon.png"		 
+		"default_icon" : "icon.png"	
+	
 	},
 	"content_scripts" : [
 		{
-			"matches" : ["https://kktix.com/events/*/registrations/new"],
+			"matches" : ["<all_urls>"],
 			"js" : ["buyTicket.js"]
 		}
 	],

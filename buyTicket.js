@@ -1,8 +1,12 @@
+
+			// "matches" : ["https://kktix.com/events/*/registrations/new"],
+// {/* <all_urls>  </all_urls> */} for test
+
 function buyTicket () {
 
     console.log("ready to if")
     let Tickets = document.querySelectorAll('.btn-default.plus')
-    if (Tickets.length < 1) return setTimeout(function () { buyTicket() }, 300)
+    if (Tickets.length < 1) return setTimeout(function () { buyTicket() }, 1300)
     console.log("get Element")
     
     //  幾張
@@ -46,6 +50,16 @@ function buyTicket () {
 //     buyTicket()
 // });
 window.onload = buyTicket
+
+function print(message){
+    console.log(message);
+}
+
+// browser.
+// chrome.runtime.onMessage(print)
+// browser.
+chrome.runtime.onMessage.addListener(print)
+console.log("in content script");
 
 
 
