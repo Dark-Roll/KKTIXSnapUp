@@ -2,7 +2,7 @@
 			// "matches" : ["https://kktix.com/events/*/registrations/new"],
 // {/* <all_urls>  </all_urls> */} for test
 
-function buyTicket () {
+function buyTicket (ticketType, ticketNumber) {
 
     console.log("ready to if")
     let Tickets = document.querySelectorAll('.btn-default.plus')
@@ -11,6 +11,10 @@ function buyTicket () {
     
     //  幾張
     // 哪一張
+    for (let i = 0; i < ticketNumber; i++) {
+        
+        Tickets[ticketType].click()
+    }
     Tickets[0].click()
 
     // col-6 form-control ng-valid ng-touched ng-not-empty ng-pristine 
@@ -51,6 +55,24 @@ function buyTicket () {
 // });
 window.onload = buyTicket
 
+function updateBuyTicket(json){
+
+    console.log(json);
+    buyTicket(json.ticketType, json.ticketNumber)
+    // let 
+    // if(!json) return
+    if (json.ticketType){
+        buyTicket("",)
+    }
+    if(json.ticketNumber){
+
+    }
+    // Object.keys(json).map( e =>{
+
+    //     buyTicket()
+    // })
+}
+
 function print(message){
     console.log(message);
 }
@@ -58,7 +80,7 @@ function print(message){
 // browser.
 // chrome.runtime.onMessage(print)
 // browser.
-chrome.runtime.onMessage.addListener(print)
+chrome.runtime.onMessage.addListener(updateBuyTicket)
 console.log("in content script");
 
 
