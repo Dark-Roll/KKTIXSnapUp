@@ -35,8 +35,11 @@
 // alert 要拿掉嗎
 // alert wont reload, catch style to deal with? because the two is the same
 
+// 已售完 || 暫無票卷
 
-let answer ="aiba_snake@yahoo.com.hk"
+const reloadTime = 10
+const whichTicketType = 8
+let answer ="20200516"
 // let answer ="0525jasonmra"
 // let answer ="0309cat" 
 // let answer ="jjc" 
@@ -71,7 +74,7 @@ window.alert = function() {};
 const buyTicket = (ticketType, ticketNumber) => {
 // function buyTicket() {
 
-    console.log("in bg", chrome);
+    // console.log("in bg", chrome);
 
     let noTicketAlert = document.querySelectorAll('.register-status.register-status-OUT_OF_STOCK .alert-wrapper.alert-warning.align-center .alert')
     // noTicketAlert.length
@@ -88,6 +91,7 @@ const buyTicket = (ticketType, ticketNumber) => {
     let soldOutTicketPage = document.querySelectorAll('.register-status.register-status-IN_STOCK.register-status-SOLD_OUT.register-status-COMING_SOON')[0]
     console.log('soldOutTicketPage is :', soldOutTicketPage);
     if ( soldOutTicketPage && soldOutTicketPage.classList.contains('hide') === true ){
+        // 一開始 classlist 會先含有 hide，之後接到資料 KKTIX 才會把它取消
         console.log( soldOutTicketPage.classList)
         console.log("sold out");
         // location.reload() 
@@ -101,12 +105,16 @@ const buyTicket = (ticketType, ticketNumber) => {
     // if(!ticketType) ticketType = 0
     // if(!ticketNumber) ticketNumber = 1
     // console.log( chrome.extension.getBackgroundPage().window.ticketType )
-    console.log("ready to if")
+    // console.log("ready to if")
     // console.log("ticketType and ticketNumber in buyTicket", ticketType, ticketNumber);
 
     // console.log(ticType, ticNumber);
     let Tickets = document.querySelectorAll('.btn-default.plus')
-    if (Tickets.length < 1) return setTimeout(function () { buyTicket() }, 10)
+    if (Tickets.length < 1) return setTimeout(function () { 
+        buyTicket() 
+        // 已售完也會
+        console.log("not get element");
+    }, reloadTime)
     console.log("get Element")
 
 
@@ -123,14 +131,37 @@ const buyTicket = (ticketType, ticketNumber) => {
         Tickets[ticketType-1].click()
 
     }else{
-        console.log("no ticketType");
-        Tickets[0].click()
-        Tickets[0].click()
-        if(Tickets[0]){
-            // Tickets[0].click()
-            // Tickets[0].click()
-    
+        let allTicketElem = document.getElementsByClassName('ticket-unit ng-scope')
+
+        // 第一種票卷是不是已售完
+        if(
+            allTicketElem[0].getElementsByClassName('ticket-quantity')[0].innerText !== '已售完'
+        ){
+            Tickets[0].click()
+            Tickets[0].click()
+            Tickets[0].click()
+            Tickets[0].click()
+        } else if(             
+            allTicketElem[allTicketElem.length -1].getElementsByClassName('ticket-quantity')[0].innerText !== '已售完'
+        ){
+            Tickets[Tickets.length -1].click()
+            Tickets[Tickets.length -1].click()
+            Tickets[Tickets.length -1].click()
+            Tickets[Tickets.length -1].click()
+        } else{
+            if(Tickets[whichTicketType]){
+                Tickets[whichTicketType].click()
+                Tickets[whichTicketType].click()
+                Tickets[whichTicketType].click()
+                Tickets[whichTicketType].click()
+                // Tickets[0].click()
+                // Tickets[0].click()
+        
+            }
         }
+
+        console.log(allTicketElem);
+        console.log("no ticketType");
     }
 
     // col-6 form-control ng-valid ng-touched ng-not-empty ng-pristine 
@@ -180,7 +211,7 @@ const buyTicket = (ticketType, ticketNumber) => {
         const fillAnswerAgain = ()=>{
             console.log(answerInput);
             if (answerInput.disabled == true ){
-                return setTimeout(() => { fillAnswerAgain() }, 10)
+                return setTimeout(() => { fillAnswerAgain() }, reloadTime)
             }
             answerInput.focus()
         }
@@ -196,7 +227,7 @@ const buyTicket = (ticketType, ticketNumber) => {
             const fillAnswerAgain = ()=>{
                 console.log(answerInput);
                 if (answerInput.disabled == true ){
-                    return setTimeout(() => { fillAnswerAgain() }, 10)
+                    return setTimeout(() => { fillAnswerAgain() }, reloadTime)
                 }
                 answerInput.focus()
             }
