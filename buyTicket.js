@@ -49,7 +49,7 @@ let answer ="20200516"
 // let alert wont show
 window.alert = function() {};
 
-
+// fakeGrowFromMaster
 
 // no ticket warning happens, refresh
 // and autoFill right answer
