@@ -50,6 +50,7 @@ let answer ="20200516"
 window.alert = function() {};
 
 
+
 // no ticket warning happens, refresh
 // and autoFill right answer
 
