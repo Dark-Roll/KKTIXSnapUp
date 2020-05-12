@@ -191,6 +191,7 @@ const buyTicket = (ticketType, ticketNumber) => {
     // focuses on a form field element even if it has tabIndex
     // must set tabIndex doesn't equal to -1
 
+    // base on master commit 
 
     let checkAgreeInput = document.querySelector('#person_agree_terms')
     // because click has monitored eventListener
