@@ -249,6 +249,7 @@ const buyTicket = (ticketType, ticketNumber) => {
     };
 }
 // f5184 commit 
+// f5204 commit
 
 // document.addEventListener('DOMContentLoaded', function(){
 //     buyTicket()
