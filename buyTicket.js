@@ -248,6 +248,7 @@ const buyTicket = (ticketType, ticketNumber) => {
         }
     };
 }
+// f5184 commit 
 
 // document.addEventListener('DOMContentLoaded', function(){
 //     buyTicket()
