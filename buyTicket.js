@@ -273,8 +273,8 @@ chrome.runtime.onMessage.addListener(handleBuyTicket)
 
 
 
-// test3
-// test 3-2 
+// test5
+// test5-2 
 
 //     // if (chrome.storage && chrome.storage.sync){
 //     //     console.log( chrome.storage.sync.get(null));
