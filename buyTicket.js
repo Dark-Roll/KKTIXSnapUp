@@ -264,6 +264,8 @@ const buyTicket = (ticketType, ticketNumber) => {
 // window.onload = speedyBuyTicket
 window.onload = buyTicket
 
+// buyTicket
+
 const handleBuyTicket = (ticketObj) => {
     console.log(ticketObj);
     buyTicket(ticketObj.ticketType, ticketObj.ticketNumber)
