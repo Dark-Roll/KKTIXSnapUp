@@ -261,6 +261,7 @@ const buyTicket = (ticketType, ticketNumber) => {
 // something merge into develop 
 // 5541
 
+// window.onload = speedyBuyTicket
 window.onload = buyTicket
 
 const handleBuyTicket = (ticketObj) => {
