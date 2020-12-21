@@ -253,6 +253,7 @@ const buyTicket = (ticketType, ticketNumber) => {
         }
     };
 }
+// 
 
 // document.addEventListener('DOMContentLoaded', function(){
 //     buyTicket()
@@ -260,6 +261,9 @@ const buyTicket = (ticketType, ticketNumber) => {
 
 // something merge into develop 
 // 5541
+// 
+
+// test3
 
 // window.onload = speedyBuyTicket
 window.onload = buyTicket
