@@ -256,7 +256,7 @@ const buyTicket = (ticketType, ticketNumber) => {
 //     buyTicket()
 // });
 
-
+// 5541
 
 window.onload = buyTicket
 
