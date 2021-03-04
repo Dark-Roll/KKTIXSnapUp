@@ -257,6 +257,7 @@ const buyTicket = (ticketType, ticketNumber) => {
 // });
 
 // 5541
+// fix bug
 
 window.onload = buyTicket
 
