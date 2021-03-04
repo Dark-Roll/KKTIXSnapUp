@@ -256,7 +256,7 @@ const buyTicket = (ticketType, ticketNumber) => {
 //     buyTicket()
 // });
 
-
+// something merge into develop 
 
 window.onload = buyTicket
 
