@@ -2,6 +2,7 @@
 // "matches" : ["https://kktix.com/events/*/registrations/new"],
 // {/* <all_urls>  </all_urls> */} for test
 
+    // test commit new user
 
 
 
